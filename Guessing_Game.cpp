@@ -5,17 +5,17 @@ using namespace std;
 int number;
 int i;
 int guess;
-int random() {
+int random() { //function to randomise the number
 	srand(time(0));
-	for (i = 1; i <= 1; i++) {
-		number = rand() % 100;
+	for (i = 1; i <= 1; i++) { //I have no idea what this is
+		number = rand() % 100; //100 here is the largest number
 	}
 	return 0;
 }
-int gueser() {
+int guesser() {
 	cout << "Guess the number (between 0 and 100)!\n ";
 	cin >> guess;
-	if (guess < number) {
+	if (guess < number) { //if the guess is too low, print this, too high print this, etc...
 		cout << "Too Low, Guess Again!\n";
 		gueser();
 	}
