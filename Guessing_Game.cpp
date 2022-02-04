@@ -1,35 +1,36 @@
 #include <iostream>
 #include <stdlib.h>
 #include <cstdio>
+#include <ctime>
+
 using namespace std;
+
 int number;
-int i;
-int guess;
-int random() { //function to randomise the number
-	srand(time(0));
-	for (i = 1; i <= 1; i++) { //I have no idea what this is
-		number = rand() % 100; //100 here is the largest number
-	}
-	return 0;
-}
-int guesser() {
+
+void guess() {
 	cout << "Guess the number (between 0 and 100)!\n ";
-	cin >> guess;
-	if (guess < number) { //if the guess is too low, print this, too high print this, etc...
+
+	int input;
+	cin >> input;
+	
+	// If the guess is too low, print this, too high print this, etc...
+	if (input < number) {
 		cout << "Too Low, Guess Again!\n";
-		gueser();
+		guess();
 	}
-	else if (guess > number) {
+	else if (input > number) {
 		cout << "Too High, Guess again!\n";
-		gueser();
+		guess();
 	}
 	else {
-		cout << "Well done, thats the score!";
-		getchar();
+		cout << "Well done, thats the number!";
 	}
-	return 0;
+
+	// ! Using guess() inside of guess() is called a recursive function!
 }
+
 int main() {
-	random();
-	gueser();
+	srand(time(0)); // srand sets the randomness.
+	number = rand() % 100; // This generates a number from 0 - 100, and gives it to number, so we can use it in a global scope.
+	guess();
 }
